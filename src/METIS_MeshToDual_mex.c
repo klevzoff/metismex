@@ -61,7 +61,7 @@ void mexFunction
     double *xadj_out_pr = mxGetPr(xadj_out);
     for(idx_t i=0; i<ne+1; i++)
         xadj_out_pr[i] = (double) xadj[i];
-    idx_t n = (idx_t) xadj[ne+1];
+    idx_t n = (idx_t) xadj[ne];
     adjncy_out = mxCreateDoubleMatrix(1,n,mxREAL);
     mxSetData(adjncy_out,mxMalloc(sizeof(double)*n));
     double *adjncy_out_pr = mxGetPr(adjncy_out);
