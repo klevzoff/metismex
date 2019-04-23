@@ -37,6 +37,10 @@ OSX 10.10 with Matlab installed.
   ```
   matlab -nojvm -r "make;quit"
   ```
+  If you need to use a custom gcc (e.g. MATLAB R2018a requires gcc-6.3, which is not available from most package managers, so you may have to build from source), specify it via environment variable `CC`:
+  ```
+  CC=/path/to/gcc/bin/gcc matlab -nojvm -r "make;quit"
+  ```
 
 4. Test MetisMex
   ```
