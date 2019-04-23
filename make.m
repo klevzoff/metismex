@@ -67,6 +67,11 @@ copyfile([src_path '*'],build_src_path);
 
 mex_files = dir([build_src_path '*.c']);
 
+CC = getenv('CC');
+if isempty(CC)
+    CC = 'gcc';
+end
+
 c = computer;
 switch c
     case 'GLNXA64'
@@ -74,6 +79,7 @@ switch c
         for i=1:length(mex_files)
             eval(['mex -largeArrayDims -lmetis ' ...
                   'CFLAGS="\$CFLAGS -std=c99" ' ...
+                  'GCC="' CC '" ' ...
                   '-I' path_to_metis 'include ' ...
                   '-I' path_to_metis 'GKlib ' ...
                   '-I' path_to_metis 'libmetis ' ...
